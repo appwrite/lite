@@ -1,2 +1,2 @@
 # lite
-A single container version of Appwrite with minimum must have features.
+A solitary compartment form of Appwrite with least should have highlights.
