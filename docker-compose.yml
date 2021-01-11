@@ -1,0 +1,115 @@
+version: '3'
+
+services:  
+  appwritelite:
+    container_name: appwritelite
+    build:
+      context: .
+      args:
+        - TESTING=true
+        - VERSION=dev
+    restart: unless-stopped
+    ports: 
+      - 7501:80
+    networks:
+      - appwritelite
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - appwritelite-uploads:/storage/uploads:rw
+      - appwritelite-cache:/storage/cache:rw
+      - appwritelite-config:/storage/config:rw
+      - appwritelite-functions:/storage/functions:rw
+    depends_on:
+      - mariadb
+      - redis
+      - influxdb
+    environment:
+      - _APP_ENV
+      - _APP_SYSTEM_EMAIL_NAME
+      - _APP_SYSTEM_EMAIL_ADDRESS
+      - _APP_SYSTEM_SECURITY_EMAIL_ADDRESS
+      - _APP_OPTIONS_ABUSE
+      - _APP_OPTIONS_FORCE_HTTPS
+      - _APP_OPENSSL_KEY_V1
+      - _APP_DOMAIN
+      - _APP_DOMAIN_TARGET
+      - _APP_REDIS_HOST
+      - _APP_REDIS_PORT
+      - _APP_DB_HOST
+      - _APP_DB_PORT
+      - _APP_DB_SCHEMA
+      - _APP_DB_USER
+      - _APP_DB_PASS
+      - _APP_STORAGE_ANTIVIRUS
+      - _APP_STORAGE_ANTIVIRUS_HOST
+      - _APP_STORAGE_ANTIVIRUS_PORT
+      - _APP_SMTP_HOST
+      - _APP_SMTP_PORT
+      - _APP_SMTP_SECURE
+      - _APP_SMTP_USERNAME
+      - _APP_SMTP_PASSWORD
+      - _APP_INFLUXDB_HOST
+      - _APP_INFLUXDB_PORT
+      - _APP_STORAGE_LIMIT
+      - _APP_FUNCTIONS_TIMEOUT
+      - _APP_FUNCTIONS_CONTAINERS
+      - _APP_FUNCTIONS_CPUS
+      - _APP_FUNCTIONS_MEMORY
+      - _APP_FUNCTIONS_MEMORY_SWAP
+
+  mariadb:
+    image: appwrite/mariadb:1.2.0 # fix issues when upgrading using: mysql_upgrade -u root -p
+    container_name: appwritelite-mariadb
+    restart: unless-stopped
+    networks:
+      - appwritelite
+    volumes:
+      - appwritelite-mariadb:/var/lib/mysql:rw
+    ports:
+      - "7502:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=${_APP_DB_SCHEMA}
+      - MYSQL_USER=${_APP_DB_USER}
+      - MYSQL_PASSWORD=${_APP_DB_PASS}
+    command: 'mysqld --innodb-flush-method=fsync'
+  
+  redis:
+    image: redis:6.0-alpine
+    container_name: appwritelite-redis
+    restart: unless-stopped
+    networks:
+      - appwritelite
+    volumes:
+      - appwritelite-redis:/data:rw
+
+  
+  influxdb:
+    image: influxdb:1.8-alpine
+    container_name: appwritelite-influxdb
+    restart: unless-stopped
+    networks:
+      - appwritelite
+    volumes:
+      - appwritelite-influxdb:/var/lib/influxdb:rw
+
+  telegraf:
+    image: appwrite/telegraf:1.0.0
+    container_name: appwritelite-telegraf
+    restart: unless-stopped
+    networks:
+      - appwritelite
+
+networks:
+  appwritelite:
+
+volumes:
+  appwritelite-mariadb:
+  appwritelite-redis:
+  appwritelite-cache:
+  appwritelite-uploads:
+  # appwrite-certificates:
+  appwritelite-functions:
+  appwritelite-influxdb:
+  # appwrite-chronograf:
+  appwritelite-config:
