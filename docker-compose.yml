@@ -19,9 +19,9 @@ services:
       - appwritelite-cache:/storage/cache:rw
       - appwritelite-config:/storage/config:rw
       - appwritelite-functions:/storage/functions:rw
+      - appwritelite-redis:/data:rw
     depends_on:
       - mariadb
-      - redis
       - influxdb
     environment:
       - _APP_ENV
@@ -73,16 +73,6 @@ services:
       - MYSQL_USER=${_APP_DB_USER}
       - MYSQL_PASSWORD=${_APP_DB_PASS}
     command: 'mysqld --innodb-flush-method=fsync'
-  
-  redis:
-    image: redis:6.0-alpine
-    container_name: appwritelite-redis
-    restart: unless-stopped
-    networks:
-      - appwritelite
-    volumes:
-      - appwritelite-redis:/data:rw
-
   
   influxdb:
     image: influxdb:1.8-alpine
