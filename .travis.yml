@@ -29,4 +29,3 @@ script:
 - docker-compose logs appwritelite
 - docker-compose exec appwritelite doctor
 - docker-compose exec appwritelite vars
-- docker-compose exec appwritelite test
