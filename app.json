@@ -1,0 +1,8 @@
+{
+	"name": "appwrite-lite",
+	"description": "Appwrite Lite",
+	"repository": "https://github.com/appwrite/lite",
+	"logo": "https://appwrite.io/images/appwrite.svg",
+	"keywords": [ "appwrite", "docker", "php" ],
+	"stack": "container"
+}
