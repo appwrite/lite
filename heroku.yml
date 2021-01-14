@@ -13,11 +13,11 @@ setup:
     _APP_DOMAIN_TARGET:demo.appwrite.io
     _APP_REDIS_HOST:localhost
     _APP_REDIS_PORT:6379
-    _APP_DB_HOST:mariadb
+    _APP_DB_HOST:klbcedmmqp7w17ik.cbetxkdyhwsb.us-east-1.rds.amazonaws.com
     _APP_DB_PORT:3306
     _APP_DB_SCHEMA:appwrite
-    _APP_DB_USER:user
-    _APP_DB_PASS:password
+    _APP_DB_USER:f1096vrzhlyc7hhe
+    _APP_DB_PASS:vn9tyiy27p615ozd
     _APP_STORAGE_ANTIVIRUS:disabled
     _APP_STORAGE_ANTIVIRUS_HOST:clamav
     _APP_STORAGE_ANTIVIRUS_PORT:3310
@@ -36,3 +36,6 @@ setup:
 build:
   docker:
     web: Dockerfile
+
+run:
+  web: /usr/bin/supervisord -n -c /etc/supervisord-heroku.conf
