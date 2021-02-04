@@ -19,7 +19,6 @@ services:
       - appwritelite-redis:/data:rw
     depends_on:
       - mariadb
-      - influxdb
     environment:
       - _APP_ENV
       - _APP_SYSTEM_EMAIL_NAME
@@ -38,21 +37,18 @@ services:
       - _APP_DB_USER
       - _APP_DB_PASS
       - _APP_STORAGE_ANTIVIRUS
-      - _APP_STORAGE_ANTIVIRUS_HOST
-      - _APP_STORAGE_ANTIVIRUS_PORT
       - _APP_SMTP_HOST
       - _APP_SMTP_PORT
       - _APP_SMTP_SECURE
       - _APP_SMTP_USERNAME
       - _APP_SMTP_PASSWORD
-      - _APP_INFLUXDB_HOST
-      - _APP_INFLUXDB_PORT
       - _APP_STORAGE_LIMIT
       - _APP_FUNCTIONS_TIMEOUT
       - _APP_FUNCTIONS_CONTAINERS
       - _APP_FUNCTIONS_CPUS
       - _APP_FUNCTIONS_MEMORY
       - _APP_FUNCTIONS_MEMORY_SWAP
+      - _APP_USAGE_STATS
 
   mariadb:
     image: appwrite/mariadb:1.2.0 # fix issues when upgrading using: mysql_upgrade -u root -p
@@ -71,21 +67,6 @@ services:
       - MYSQL_PASSWORD=${_APP_DB_PASS}
     command: 'mysqld --innodb-flush-method=fsync'
   
-  influxdb:
-    image: influxdb:1.8-alpine
-    container_name: appwritelite-influxdb
-    restart: unless-stopped
-    networks:
-      - appwritelite
-    volumes:
-      - appwritelite-influxdb:/var/lib/influxdb:rw
-
-  telegraf:
-    image: appwrite/telegraf:1.0.0
-    container_name: appwritelite-telegraf
-    restart: unless-stopped
-    networks:
-      - appwritelite
 
 networks:
   appwritelite:
@@ -95,8 +76,5 @@ volumes:
   appwritelite-redis:
   appwritelite-cache:
   appwritelite-uploads:
-  # appwrite-certificates:
   appwritelite-functions:
-  appwritelite-influxdb:
-  # appwrite-chronograf:
   appwritelite-config:
