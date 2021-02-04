@@ -26,6 +26,6 @@ install:
 
 script:
 - docker ps
-- docker-compose logs appwritelite
-- docker-compose exec appwritelite doctor
-- docker-compose exec appwritelite vars
+- docker-compose logs appwrite-lite
+- docker-compose exec appwrite-lite doctor
+- docker-compose exec appwrite-lite vars
