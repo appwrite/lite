@@ -1,4 +1,4 @@
-FROM appwrite/appwrite:dev
+FROM appwrite/appwrite:0.7.0
 
 LABEL maintainer="team@appwrite.io"
 
