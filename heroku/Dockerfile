@@ -10,16 +10,18 @@ RUN \
 # copy supervisord conf
 ADD root /
 
-RUN db = ${JAWSDB_MARIA_URL} \
-  proto="$(echo $db | grep :// | sed -e's,^\(.*://\).*,\1,g')" \
-  url="$(echo ${db/$proto/})" \
-  userpass="$(echo $url | grep @ | cut -d@ -f1)" \
-  user="$(echo $userpass | grep : | cut -d: -f1)" \
-  pass="$(echo $userpass | grep : | cut -d: -f2)" \
-  hostport="$(echo ${url/$userpass@/} | cut -d/ -f1)" \
-  host="$(echo $hostport | sed -e 's,:.*,,g')" \
-  port="$(echo $hostport | sed -e 's,^.*:,:,g' -e 's,.*:\([0-9]*\).*,\1,g' -e 's,[^0-9],,g')" \
-  schema="$(echo $url | grep / | cut -d/ -f2-)"
+
+
+RUN echo db = ${JAWSDB_MARIA_URL} \
+  && echo proto="$(echo $db | grep :// | sed -e's,^\(.*://\).*,\1,g')" \
+  && echo url="$(echo ${db/$proto/})" \
+  && echo userpass="$(echo $url | grep @ | cut -d@ -f1)" \
+  && echo user="$(echo $userpass | grep : | cut -d: -f1)" \
+  && echo pass="$(echo $userpass | grep : | cut -d: -f2)" \
+  && echo hostport="$(echo ${url/$userpass@/} | cut -d/ -f1)" \
+  && echo host="$(echo $hostport | sed -e 's,:.*,,g')" \
+  && echo port="$(echo $hostport | sed -e 's,^.*:,:,g' -e 's,.*:\([0-9]*\).*,\1,g' -e 's,[^0-9],,g')" \
+  && echo schema="$(echo $url | grep / | cut -d/ -f2-)"
 
 # Environment
 ENV _APP_EDITION=community-lite \
