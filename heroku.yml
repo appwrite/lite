@@ -35,7 +35,7 @@ setup:
 
 build:
   docker:
-    web: Dockerfile
+    web: heroku/Dockerfile
 
 run:
   web: /usr/bin/supervisord -n -c /etc/supervisord-heroku.conf
