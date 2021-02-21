@@ -18,4 +18,4 @@ ENV _APP_EDITION=community-lite \
     _APP_REDIS_PORT=6379 \
     _APP_USAGE_STATS=disabled
 
-CMD ["/bin/sh", "/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]

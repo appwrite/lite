@@ -36,6 +36,3 @@ setup:
 build:
   docker:
     web: heroku/Dockerfile
-
-run:
-  web: /bin/sh /entrpyoint.sh
