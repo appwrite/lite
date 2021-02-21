@@ -11,20 +11,6 @@ setup:
     _APP_OPENSSL_KEY_V1: your-secret-key
     _APP_DOMAIN: demo.appwrite.io
     _APP_DOMAIN_TARGET: demo.appwrite.io
-    _APP_REDIS_HOST: localhost
-    _APP_REDIS_PORT: 6379
-    _APP_DB_HOST: klbcedmmqp7w17ik.cbetxkdyhwsb.us-east-1.rds.amazonaws.com
-    _APP_DB_PORT: 3306
-    _APP_DB_SCHEMA: appwrite
-    _APP_DB_USER: f1096vrzhlyc7hhe
-    _APP_DB_PASS: vn9tyiy27p615ozd
-    _APP_STORAGE_ANTIVIRUS: disabled
-    _APP_STORAGE_ANTIVIRUS_HOST: clamav
-    _APP_STORAGE_ANTIVIRUS_PORT: 3310
-    _APP_INFLUXDB_HOST: influxdb
-    _APP_INFLUXDB_PORT: 8086
-    _APP_STATSD_HOST: telegraf
-    _APP_STATSD_PORT: 8125
     _APP_STORAGE_LIMIT: 10000000
     _APP_FUNCTIONS_TIMEOUT: 900
     _APP_FUNCTIONS_CONTAINERS: 10
