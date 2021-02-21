@@ -1,5 +1,4 @@
 #!/bin/sh
-JAWSDB_MARIA_URL=mysql://f1096vrzhlyc7hhe:vn9tyiy27p615ozd@klbcedmmqp7w17ik.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/nk1qz3yp9k27nd0y
 db=$JAWSDB_MARIA_URL
 proto="$(echo $db | grep :// | sed -e's,^\(.*://\).*,\1,g')"
 url="$(echo ${db/$proto/})"
