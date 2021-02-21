@@ -36,5 +36,10 @@
 		"_APP_FUNCTIONS_MEMORY_SWAP": { "value": "128" },
 		"_APP_MAINTENANCE_INTERVAL": { "value": "86400" }
 	},
+	"addons": [
+		{
+			"plan":"jawsdb-maria:kitefin"
+		}
+	],
 	"stack": "container"
 }
