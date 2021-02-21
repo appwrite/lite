@@ -17,6 +17,6 @@ export _APP_DB_SCHEMA=$schema
 export _APP_DB_USER=$user
 export _APP_DB_PASS=$pass
 
-php /dbinit.php
+php /dbInit.php
 
 /usr/bin/supervisord -n -c /etc/supervisord.conf
