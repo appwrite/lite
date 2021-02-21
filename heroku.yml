@@ -38,4 +38,4 @@ build:
     web: heroku/Dockerfile
 
 run:
-  web: /usr/bin/supervisord -n -c /etc/supervisord.conf
+  web: /entrpyoint.sh
