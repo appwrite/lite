@@ -38,4 +38,4 @@ build:
     web: heroku/Dockerfile
 
 run:
-  web:/bin/sh /entrpyoint.sh
+  web:"/bin/sh /entrpyoint.sh"
