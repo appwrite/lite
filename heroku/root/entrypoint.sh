@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 db=$JAWSDB_MARIA_URL
 proto="$(echo $db | grep :// | sed -e's,^\(.*://\).*,\1,g')"
