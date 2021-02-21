@@ -36,3 +36,5 @@ setup:
 build:
   docker:
     web: heroku/Dockerfile
+run:
+  web: sh /entrypoint.sh
