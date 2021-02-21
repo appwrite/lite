@@ -30,6 +30,10 @@ Appwrite lite is simpler and light weight version. So we have removed few functi
 
 In case of features, all the features of Appwrite is present except for usage stats and Antivirus.
 
+## Deploy to Heroku
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+
 ## Installation
 
 Appwritelite is simpler version of [Appwrite.io](https://appwrite.io). Running your server is as easy as running one command from your terminal.
