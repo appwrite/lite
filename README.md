@@ -20,15 +20,19 @@ Appwrite lite is the stripped down, single container version of Appwrite, with n
 Table of Contents:
 
 - [Whats different](#whats-different)
+- [Who is it good for](#who-is-it-good-for)
 - [Installation](#installation)
 - [Getting Started](#getting-started)
     
 ## What's different
 Appwrite lite is simpler and light weight version. So we have removed few functionalities and made some fundamental changes as follows.
 1. All the services are running inside a single container using supervisord.
-2. Services like ClamAV antivirus and InfluxDB and Telegraf for usage stats have been removed.
+2. Services like ClamAV antivirus and InfluxDB and Telegraf for usage stats have been removed. ClamAV has been removed as it consumes loads of memory and CPU. InfluxDB and Telegraf has been removed because of the complication of integrating these services when targetting deployment systems like Heroku and similar apps platforms.
 
 In case of features, all the features of Appwrite is present except for usage stats and Antivirus.
+
+## Who is it good for?
+For those of you who wants minimal version of Appwrite that can be run on low res system and those who do not care about usage stats can use Appwrite-lite. Anyone who doesn't allow public to upload files to storage, so are confident that any files downloaded from storage are proper, secure files and doesn't require antivirus to protect their end users can also use this version of Appwrite-lite. Also those who want to deploy Appwrite to  platforms like Heroku or Digitalocean Apps platform and other similar platforms can also use Appwrite-lite.
 
 ## Installation
 
