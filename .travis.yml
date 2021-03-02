@@ -1,0 +1,31 @@
+arch:
+  - amd64
+
+os: linux
+
+language: minimal
+
+notifications:
+  email:
+  - team@appwrite.io
+  
+services:
+- docker
+
+before_install:
+  - curl -fsSL https://get.docker.com | sh
+  - echo '{"experimental":"enabled"}' | sudo tee /etc/docker/daemon.json
+  - mkdir -p $HOME/.docker
+  - echo '{"experimental":"enabled"}' | sudo tee $HOME/.docker/config.json
+  - sudo service docker start
+
+install:
+- docker --version
+- docker-compose up -d
+- sleep 10
+
+script:
+- docker ps
+- docker-compose logs appwrite-lite
+- docker-compose exec appwrite-lite doctor
+- docker-compose exec appwrite-lite vars

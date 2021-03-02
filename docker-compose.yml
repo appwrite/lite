@@ -1,0 +1,76 @@
+version: '3'
+
+services:  
+  appwrite-lite:
+    container_name: appwrite-lite
+    build:
+      context: .
+    restart: unless-stopped
+    ports: 
+      - 7501:80
+    networks:
+      - appwrite-lite
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - appwrite-lite-uploads:/storage/uploads:rw
+      - appwrite-lite-cache:/storage/cache:rw
+      - appwrite-lite-config:/storage/config:rw
+      - appwrite-lite-functions:/storage/functions:rw
+      - appwrite-lite-redis:/data:rw
+    depends_on:
+      - mariadb
+    environment:
+      - _APP_ENV
+      - _APP_SYSTEM_EMAIL_NAME
+      - _APP_SYSTEM_EMAIL_ADDRESS
+      - _APP_SYSTEM_SECURITY_EMAIL_ADDRESS
+      - _APP_OPTIONS_ABUSE
+      - _APP_OPTIONS_FORCE_HTTPS
+      - _APP_OPENSSL_KEY_V1
+      - _APP_DOMAIN
+      - _APP_DOMAIN_TARGET
+      - _APP_DB_HOST
+      - _APP_DB_PORT
+      - _APP_DB_SCHEMA
+      - _APP_DB_USER
+      - _APP_DB_PASS
+      - _APP_SMTP_HOST
+      - _APP_SMTP_PORT
+      - _APP_SMTP_SECURE
+      - _APP_SMTP_USERNAME
+      - _APP_SMTP_PASSWORD
+      - _APP_STORAGE_LIMIT
+      - _APP_FUNCTIONS_TIMEOUT
+      - _APP_FUNCTIONS_CONTAINERS
+      - _APP_FUNCTIONS_CPUS
+      - _APP_FUNCTIONS_MEMORY
+      - _APP_FUNCTIONS_MEMORY_SWAP
+
+  mariadb:
+    image: appwrite/mariadb:1.2.0 # fix issues when upgrading using: mysql_upgrade -u root -p
+    container_name: appwrite-lite-mariadb
+    restart: unless-stopped
+    networks:
+      - appwrite-lite
+    volumes:
+      - appwrite-lite-mariadb:/var/lib/mysql:rw
+    ports:
+      - "7502:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=${_APP_DB_SCHEMA}
+      - MYSQL_USER=${_APP_DB_USER}
+      - MYSQL_PASSWORD=${_APP_DB_PASS}
+    command: 'mysqld --innodb-flush-method=fsync'
+  
+
+networks:
+  appwrite-lite:
+
+volumes:
+  appwrite-lite-mariadb:
+  appwrite-lite-redis:
+  appwrite-lite-cache:
+  appwrite-lite-uploads:
+  appwrite-lite-functions:
+  appwrite-lite-config:
