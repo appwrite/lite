@@ -16,6 +16,7 @@
 
 Appwrite lite is the stripped down, single container version of Appwrite, with non essential services removed. Optimized for low resource systems.
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 Table of Contents:
 
