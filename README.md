@@ -1,10 +1,8 @@
 <p align="center">
     <b>Update (2021-03-20): This repo is still a work in progress - the official release is coming soon!</b>
-
     <br/>
+    <br/>    
     <br/>
-    <br/>
-    
     <a href="https://appwrite.io" target="_blank"><img width="260" height="39" src="https://appwrite.io/images/github-logo.png" alt="Appwrite Logo"></a>
     <br />
     <br />
