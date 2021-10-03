@@ -31,7 +31,7 @@ Table of Contents:
 ## What's different
 Appwrite lite is simpler and light weight version. So we have removed few functionalities and made some fundamental changes as follows.
 1. All the services are running inside a single container using supervisord.
-2. Services like ClamAV antivirus and InfluxDB and Telegraf for usage stats have been removed. ClamAV has been removed as it consumes loads of memory and CPU. InfluxDB and Telegraf has been removed because of the complication of integrating these services when targetting deployment systems like Heroku and similar apps platforms.
+2. Services like ClamAV antivirus and InfluxDB and Telegraf for usage stats have been removed. ClamAV has been removed as it consumes loads of memory and CPU. InfluxDB and Telegraf has been removed because of the complication of integrating these services when targeting deployment systems like Heroku and similar apps platforms.
 
 In case of features, all the features of Appwrite is present except for usage stats and Antivirus.
 
@@ -170,7 +170,7 @@ To view the list of all the log files available, run the following command.
 docker-compose exec appwrite-lite ls /var/log
 ```
 
-To view intdividual log files, run the following command
+To view individual log files, run the following command
 ```
 docker-compose exec appwrite-lite cat /var/log/<log-file-name>.log
 ```
