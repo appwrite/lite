@@ -18,7 +18,7 @@
 [![Twitter Account](https://img.shields.io/twitter/follow/appwrite_io?color=00acee&label=twitter&style=flat-square)](https://twitter.com/appwrite_io)
 [![Follow Appwrite on StackShare](https://img.shields.io/badge/follow%20on-stackshare-blue?style=flat-square)](https://stackshare.io/appwrite)
 
-Appwrite lite is the stripped down, single container version of Appwrite, with non essential services removed. Optimized for low resource systems.
+Appwrite lite is the stripped down, single container version of Appwrite, with non essential services removed. Optimized for low resourced systems.
 
 
 Table of Contents:
@@ -36,7 +36,7 @@ Appwrite lite is simpler and light weight version. So we have removed few functi
 In case of features, all the features of Appwrite is present except for usage stats and Antivirus.
 
 ## Who is it good for?
-For those of you who wants minimal version of Appwrite that can be run on low res system and those who do not care about usage stats can use Appwrite-lite. Anyone who doesn't allow public to upload files to storage, so are confident that any files downloaded from storage are proper, secure files and doesn't require antivirus to protect their end users can also use this version of Appwrite-lite. Also those who want to deploy Appwrite to  platforms like Heroku or Digitalocean Apps platform and other similar platforms can also use Appwrite-lite.
+For those of you who wants minimal version of Appwrite that can be run on low resourced system and those who do not care about usage stats can use Appwrite-lite. Anyone who doesn't allow public to upload files to storage, now are confident that any files downloaded from storage are proper, secure files and doesn't require antivirus to protect their end users can also use this version of Appwrite-lite. Also those who want to deploy Appwrite to  platforms like Heroku or Digitalocean Apps platform and other similar platforms can also use Appwrite-lite.
 
 ## Installation
 
