@@ -1,5 +1,5 @@
 <p align="center">
-    <b>Update (2021-03-20): This repo is still a work in progress - the official release is coming soon!</b>
+    <b>Update (2022-09-15): This repo is still a work in progress - community contribution is encouraged!</b>
     <br/>
     <br/>    
     <br/>
