@@ -1,6 +1,4 @@
-FROM appwrite/appwrite:0.8.0
-
-LABEL maintainer="team@appwrite.io"
+FROM appwrite/appwrite:1.0
 
 RUN \
   apk update \
