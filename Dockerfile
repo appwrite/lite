@@ -1,4 +1,4 @@
-FROM appwrite/appwrite:0.8.0
+FROM appwrite/appwrite:2.7.4@sha256:5ba84a579acc75dea0562dca5850909b960b56b77073354e3f25a82e9dcad933
 
 LABEL maintainer="team@appwrite.io"
 
